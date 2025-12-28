@@ -1,0 +1,21 @@
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+clickhouse_data/
+output/result.csv
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# dbt
+dbt/target/
+dbt/logs/
+
+# data
+data/train.csv
+
+# Docker
+*.log
