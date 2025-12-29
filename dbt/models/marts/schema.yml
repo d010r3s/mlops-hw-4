@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: mart_daily_state_metrics
+    description: "Дневные агрегированные показатели транзакций по штатам"
+
+  - name: mart_fraud_by_category
+    description: "Анализ мошеннических транзакций по категориям покупок"
+
+  - name: mart_fraud_by_state
+    description: "Анализ уровня мошенничества по штатам"
+
+  - name: mart_customer_risk_profile
+    description: "Профиль риска клиентов на основе истории транзакций"
+
+  - name: mart_hourly_fraud_pattern
+    description: "Временные закономерности мошенничества (по часам и дням недели)"
+
+  - name: mart_merchant_analytics
+    description: "Аналитика по продавцам с точки зрения оборота и уровня мошенничества"

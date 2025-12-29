@@ -1,0 +1,32 @@
+name: 'transactions_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'transactions_dbt'
+
+model-paths: ['models']
+macro-paths: ['macros']
+test-paths: ['tests', 'unit_tests']
+seed-paths: ['seeds']
+analysis-paths: ['analysis']
+snapshot-paths: ['snapshots']
+target-path: 'target'
+clean-targets: ['target', 'dbt_packages', 'logs']
+
+require-dbt-version: ['>=1.8.0', '<2.0.0']
+
+models:
+  transactions_dbt:
+    +materialized: view
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts
+    sources:
+      +materialized: view
+
+seeds:
+  transactions_dbt:
+    +schema: raw

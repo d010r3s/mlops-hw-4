@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: transactions_db
+    database: transactions_db
+    schema: transactions_db
+    description: "Сырые данные о транзакциях (0 - обычная, 1 - фрод)"
+    tables:
+      - name: transactions
+        description: "Таблица с исходными данными"
+        columns:
+          - name: transaction_time
+            description: "Дата и время совершения транзакции"
+          - name: merch
+            description: "Название продавца"
+          - name: cat_id
+            description: "Категория транзакции"
+          - name: amount
+            description: "Сумма транзакции"
+          - name: name_1
+            description: "Имя клиента"
+          - name: name_2
+            description: "Фамилия клиента"
+          - name: gender
+            description: "Пол клиента"
+          - name: street
+            description: "Улица проживания"
+          - name: one_city
+            description: "Город проживания"
+          - name: us_state
+            description: "Штат проживания"
+          - name: post_code
+            description: "Почтовый индекс"
+          - name: lat
+            description: "Широта местоположения"
+          - name: lon
+            description: "Долгота местоположения"
+          - name: population_city
+            description: "Численность населения города"
+          - name: jobs
+            description: "Профессия"
+          - name: merchant_lat
+            description: "Широта местоположения продавца"
+          - name: merchant_lon
+            description: "Долгота местоположения продавца"
+          - name: target
+            description: "Признак мошенничества (1 - фрод, 0 - обычная транзакция)"

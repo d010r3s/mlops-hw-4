@@ -1,0 +1,10 @@
+[sqlfluff]
+dialect = clickhouse
+templater = jinja
+max_line_length = 120
+
+[sqlfluff:templater:jinja]
+apply_dbt_builtins = True
+
+[sqlfluff:rules]
+max_line_length = 120

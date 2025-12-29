@@ -1,0 +1,21 @@
+version: 2
+
+unit_tests:
+  - name: unit_amount_bucket_macro_mapping
+    description: "Macro amount_bucket mapping is consistent."
+    model: stg_transactions
+
+    given:
+      - input: source('transactions_db', 'transactions')
+        rows:
+          - {transaction_time: "2019-01-01 00:00:00", merch: "m1", cat_id: "c1", amount: 10.0,  name_1: "A", name_2: "B", gender: "M", street: "s", one_city: "x", us_state: "CA", post_code: "00000", lat: 0.0, lon: 0.0, population_city: 1, jobs: "j", merchant_lat: 0.0, merchant_lon: 0.0, target: 0}
+          - {transaction_time: "2019-01-01 00:00:00", merch: "m1", cat_id: "c1", amount: 60.0,  name_1: "A", name_2: "B", gender: "M", street: "s", one_city: "x", us_state: "CA", post_code: "00000", lat: 0.0, lon: 0.0, population_city: 1, jobs: "j", merchant_lat: 0.0, merchant_lon: 0.0, target: 0}
+          - {transaction_time: "2019-01-01 00:00:00", merch: "m1", cat_id: "c1", amount: 250.0, name_1: "A", name_2: "B", gender: "M", street: "s", one_city: "x", us_state: "CA", post_code: "00000", lat: 0.0, lon: 0.0, population_city: 1, jobs: "j", merchant_lat: 0.0, merchant_lon: 0.0, target: 0}
+          - {transaction_time: "2019-01-01 00:00:00", merch: "m1", cat_id: "c1", amount: 1200.0,name_1: "A", name_2: "B", gender: "M", street: "s", one_city: "x", us_state: "CA", post_code: "00000", lat: 0.0, lon: 0.0, population_city: 1, jobs: "j", merchant_lat: 0.0, merchant_lon: 0.0, target: 0}
+
+    expect:
+      rows:
+        - {amount: 10.0, amount_bucket: "S"}
+        - {amount: 60.0, amount_bucket: "M"}
+        - {amount: 250.0, amount_bucket: "L"}
+        - {amount: 1200.0, amount_bucket: "XL"}
